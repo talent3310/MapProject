@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>google map</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
 </head>
+
 <body>
-<style>
-	#content ul
-{
-margin: 0;
-padding: 0;
-list-style-type: none;
-}
-
-</style>
-<div id="content"></div>
-
-
-<script src="map.js"></script>
+    <style>
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    
+    #map {
+        height: 100%;
+    }
+    
+    #content ul {
+        margin: 0;
+        padding: 0;
+        list-style-type: none;
+    }
+    </style>
+    <div id="content"></div><br>
+    <div id="map"></div>
+    
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDl93vcm7CgplT0cALy3NR0OHqEbS0ARXQ&callback=initMap" async defer></script>
+    <script src="map.js"></script>
 </body>
 
 </html>
