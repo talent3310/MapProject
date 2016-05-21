@@ -58,16 +58,16 @@ while($data = mysql_fetch_row($result))
 echo "</table></li>";
 
 //
-	
 
 	$result=mysql_query("select * from cat",$con);
 
 	
 	echo "<ul>";
-	while($data = mysql_fetch_row($result))
-	{   
-	
-		echo "<li><input type='checkbox' name='vehicle' value='$data[1]'>$data[1]</li>";
+	$i = 0;
+	while($data = mysql_fetch_row($result)){
+	   
+		echo "<li><input id='checkbox$i' type='checkbox' name='vehicle' value='$data[1]'>$data[1]</li>";
+		$i ++;
 	}
 	echo "</ul>";
 

@@ -5,19 +5,24 @@
      success: function(response) {
          $("#content").html(response);
          //alert(response);
+         addCheckboxEvent();
      }
 
  });
 
- var map;
- var myCenter = { lat: -33.92, lng: 151.25 };
 
  function initMap() {
-     map = new google.maps.Map(document.getElementById('map'), {
+     RSTRNT.init();
+ }
+
+
+ var RSTRNT = {};
+ RSTRNT.init = function() {
+     var myCenter = { lat: -33.92, lng: 151.25 };
+     this.map = new google.maps.Map(document.getElementById('map'), {
          center: myCenter,
          zoom: 8
      });
-
 
      var locations = [
          ['Bondi Beach', -33.890542, 151.274856, 4],
@@ -34,14 +39,26 @@
      for (i = 0; i < locations.length; i++) {
          marker = new google.maps.Marker({
              position: new google.maps.LatLng(locations[i][1], locations[i][2]),
-             map: map
+             map: this.map
          });
 
          google.maps.event.addListener(marker, 'click', (function(marker, i) {
              return function() {
+
                  infowindow.setContent(locations[i][0]);
-                 infowindow.open(map, marker);
+                 infowindow.open(this.map, marker);
              }
          })(marker, i));
+     }
+ }
+
+ var addCheckboxEvent = function() {
+
+ 	 for (var i = 0; i < 6; i++) {
+         var selectElemet = '#checkbox' + i;
+
+         $(selectElemet).click(function() {
+            	alert('you have clicked!!!');
+         });
      }
  }
